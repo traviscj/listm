@@ -6,3 +6,14 @@ Setup
 # Run python listm_setup.py
 # Link listmcli.py into your $PATH somehow. (Or: put listmcli.py in your path and make sure listm.py is in an appropriate place to get loaded)
 # Optionally, make an alias from lm to listmcli.py to cut down on keyboarding time.
+
+Use
+===
+# Run listmcli.py or whatever you aliased it as.
+# The main commands you'll use are:
+## list/ls - lists all of the items
+## new/n - create a new item
+## changepar/mv - move an item into a subitem of another item
+## rehead/cd - change 'head', so lists occur relative to a different location
+## remove/rm - delete item
+## quit/q - quit. since CTRL-D doesn't work, stupidly. 
