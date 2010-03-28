@@ -1,3 +1,8 @@
 listm, a list manager in python
 
-testing out git submodules, okay, so we should use git normally in this directory.
+Setup
+=====
+# Make the directory ~/.listm
+# Run python listm_setup.py
+# Link listmcli.py into your $PATH somehow. (Or: put listmcli.py in your path and make sure listm.py is in an appropriate place to get loaded)
+# Optionally, make an alias from lm to listmcli.py to cut down on keyboarding time.
