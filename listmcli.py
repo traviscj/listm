@@ -75,4 +75,7 @@ class listmcli(cmd.Cmd):
 	help_q = help_quit
 
 cli = listmcli()
-cli.cmdloop()
+if len(sys.argv)>1:
+	cli.onecmd(" ".join(sys.argv[1:]))
+else:
+	cli.cmdloop()
