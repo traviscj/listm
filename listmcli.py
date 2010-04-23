@@ -26,6 +26,12 @@ class listmcli(cmd.Cmd):
 		self.prompt = 'listm> '
 		self.listm = listm_helper('/Users/tjohnson/.listm/working')
 		self.listm_head = 1
+	def do_switch(self, file):
+		self.listm = listm_helper('/Users/tjohnson/.listm/%s'%file)
+		self.listm_head = 1
+	def help_switch(self):
+		print "syntax: switch [dbfile]"
+		print "switch to a different database. "
 	def do_hello(self, arg):
 		print "hello again", arg, "!"
 	def help_hello(self):
@@ -66,6 +72,21 @@ class listmcli(cmd.Cmd):
 		itemNewParent = argList[1]
 		self.listm.changepar(itemNumber, itemNewParent)
 	do_mv = do_changepar
+
+	def do_tag(self, arg):
+		argsplit= arg.split(" ", 1)
+		try:
+			itemno = int(argsplit[0])
+			print("will fetch %i"%itemno)
+			if len(argsplit)>=2:
+				print("updating tags!")
+				tag = arg.split(" ",1)[1]
+				self.listm.tagitem(itemno, tag)
+			else:
+				print("just getting the tag")
+				self.listm.gettag(itemno)
+		except:
+			print("i can't do that, sir!")
 	def do_quit(self,arg):
 		sys.exit(1)
 	def help_quit(self):
@@ -73,9 +94,12 @@ class listmcli(cmd.Cmd):
 		print "-- terminates the application"
 	do_q = do_quit
 	help_q = help_quit
+	def do_EOF(self,arg):
+		sys.exit(0)
 
-cli = listmcli()
-if len(sys.argv)>1:
-	cli.onecmd(" ".join(sys.argv[1:]))
-else:
-	cli.cmdloop()
+if __name__=="__main__":
+	cli = listmcli()
+	if len(sys.argv)>1:
+		cli.onecmd(" ".join(sys.argv[1:]))
+	else:
+		cli.cmdloop()

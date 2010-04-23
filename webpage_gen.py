@@ -1,10 +1,10 @@
 
 import listmcli
 
-lm = listmcli.listmcli('/Users/tjohnson/.listm/working');
+lm = listmcli.listm_helper('/Users/tjohnson/.listm/classes');
 
 def listprint():
-	for listClass in lm.itemslist(3,1):		## for each class
+	for listClass in lm.itemslist(1,1):		## for each class
 		name = listClass[3]
 		print("<div class='third'><h1> %s </h1><ul>"%name)
 		for assignment in lm.itemslist(listClass[0],1): ## for each homework
